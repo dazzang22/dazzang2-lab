@@ -1,5 +1,31 @@
-title: Dahea Lee
-logo: /assets/img/.png
-description: text below ur img
-show_downloads: true
-theme: jekyll-theme-time-machine
+title: "Dahea Lee"
+logo: /assets/img/profile.png   # make sure the image file name matches this
+description: >
+  Front-End Developer & Designer passionate about crafting intuitive,
+  human-centered digital experiences.  
+  Currently exploring UI/UX design and creative coding.
+
+# Navigation links (appear at the top of the page)
+# Create markdown files like about.md, projects.md, contact.md in your repo root.
+nav:
+  - name: "About"
+    link: /about
+  - name: "Projects"
+    link: /projects
+  - name: "Contact"
+    link: /contact
+
+show_downloads: false  # portfolio usually doesn't need this
+theme: jekyll-theme-minimal
+
+# Optional social links (these appear as icons or text links depending on theme)
+social_links:
+  github: https://github.com/Dazzang22
+  linkedin: https://www.linkedin.com/in/dahealee/
+  email: mailto:yourname@email.com
+
+# Google Analytics or GA4 ID (optional)
+google_analytics: G-XXXXXXXXXX
+
+# Build settings
+markdown: kramdown
