@@ -1,0 +1,34 @@
+#  Project: SMTH
+*(Team Project, 2024 – Unity / C# / GitHub Collaboration)*
+
+##  Overview
+smth
+
+[🔗 View the GitHub Repository](https://github.com/ORGNAME/gravity-puzzle-3d)
+
+---
+
+##  My Role
+- smth
+---
+
+## Technical Highlights
+- smth
+
+---
+
+## Key Code Example
+```csharp
+void InvertGravity() {
+    Physics.gravity = -Physics.gravity;
+    playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+}
+
+---
+
+## What I Learned
+- smth
+
+---
+
+![Gameplay Demo](/assets/img/team1-demo.gif)
