@@ -8,7 +8,6 @@
 **Tech**  
 C# · Unity · Coroutine · UI Sync · AR Foundation
 
-
 ## 🤍 Core Strength
 
 - Data → UI Sync 파이프라인 설계
@@ -22,7 +21,6 @@ C# · Unity · Coroutine · UI Sync · AR Foundation
 ---
 
 # ❄️ 프렌즈! 눈송 (GPS 기반 AR 수집 게임)
-
 Notion: [Dazzang22](https://github.com/Dazzang22)  
 > GPS 기반 AR 수집 게임으로,  
 > 위치에 따라 생성된 캐릭터를 수집하고 도감을 완성하는 인터랙티브 시스템입니다.
@@ -198,6 +196,12 @@ if (filteredEntries.Count > 0)
 ---
 
 # 🦋 Name of Butterfly
+<img width="1270" height="691" alt="Screenshot 2026-03-29 at 12 09 28 PM" src="https://github.com/user-attachments/assets/ec5b230c-f8a9-4762-b94b-fd92295f563a" />
+<img width="300" height="150" alt="Screenshot 2026-03-31 at 4 53 56 PM" src="https://github.com/user-attachments/assets/28d1ab66-4546-4dfb-8e34-cc37435119cf" /><img width="300" height="150" alt="Screenshot 2026-03-31 at 4 54 16 PM" src="https://github.com/user-attachments/assets/48440ea9-7032-41e5-9f00-e352524d6d4b" /><img width="300" height="150" alt="Screenshot 2026-03-30 at 4 58 07 PM" src="https://github.com/user-attachments/assets/82a74abc-15d1-40ae-bc65-268760b1bb19" />
+
+
+
+
 [Notion](https://teamnob.notion.site/bf98317c298147758a218e9dc75e6030) [GitHub](https://github.com/lotia20/Name_Of_Butterfly_new) 
 > GPS 기반 AR 수집 게임으로,  
 > 위치에 따라 생성된 캐릭터를 수집하고 도감을 완성하는 인터랙티브 시스템입니다.
