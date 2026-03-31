@@ -41,7 +41,10 @@ Notion: [Dazzang22](https://github.com/Dazzang22)
 **1. ScriptableObject 기반 데이터 모델 설계**
 - Noonsong / Friends / Item 등 게임 내 주요 엔트리 구조를 ScriptableObject로 설계  
 - 캐릭터 상태(발견 여부, 호감도, 관계 상태), 아이템 속성, 건물별 스폰 기준을 데이터 단위로 정의  
-- 게임 로직, UI, DB 동기화가 동일한 데이터 모델을 기준으로 동작하도록 구조 설계  
+- 게임 로직, UI, DB 동기화가 동일한 데이터 모델을 기준으로 동작하도록 구조 설계
+<details>
+<summary>Code</summary> 
+    
 ~~~csharp
 [CreateAssetMenu(fileName = "NewNoonsongEntry", menuName = "Noonsong Entry")]
 public class NoonsongEntry : ScriptableObject
@@ -61,6 +64,7 @@ public class NoonsongEntry : ScriptableObject
     public bool isBestFriend;
 }
 ~~~
+</details>
 
 **2. 데이터 흐름 기반 UI 동기화 구조 설계**
 - Spawn된 오브젝트와 Entry 데이터를 연결하여  
@@ -71,7 +75,9 @@ public class NoonsongEntry : ScriptableObject
 - Camera 기준으로 현재 상호작용 가능한 타겟을 판별하고 currentTarget으로 관리  
 - 단순 Raycast로는 화면 내 노출 여부를 정확히 판단하기 어려워,  
   오브젝트의 바운더리 포인트를 기준으로 화면 내 존재 여부를 판정하는 로직 구현  
-
+<details>
+<summary>Code</summary>
+    
 ~~~csharp
 Vector3[] checkPoints = new Vector3[]
 {
@@ -96,6 +102,7 @@ foreach (Vector3 point in checkPoints)
     }
 }
 ~~~
+</details>
 
 → 화면 중심 Raycast의 한계를 보완하여, 실제 사용자 시야 기준으로 상호작용 대상을 판별하도록 개선  
 
@@ -192,10 +199,102 @@ if (filteredEntries.Count > 0)
 
 # ❄️ Name of Butterfly 
 
+## 🩶 Overview
+- **Platform**: Unity (VR)  
+- **Language**: C#  
+- **Role**: Client Developer  
+- **Focus**: Interaction System, Input Control, Camera Control, Event Flow  
+
+## 🩶 What I Did
+**1. Camera Lock 기반 인터랙션 구조 설계**
+- 상호작용 시 카메라를 고정된 위치로 이동시키고, 플레이어 입력을 차단하여 상태 변수를 제거  
+- 이벤트 종료 후 원래 시점과 입력 상태를 복구하는 구조 구현  
+<details>
+<summary>Code</summary>
+    
+~~~csharp
+if (!IsPasswordActive)
+{
+    IsPasswordActive = true;
+    SaveOriginalCameraTransform();
+
+    if (closestObject != null && closestObject.CompareTag("SelectablePasswordScreen"))
+    {
+        MoveCameraAboveObject(closestObject, 0.3f);
+        player.GetComponent<PlayerController>().enabled = false;
+    }
+}
+~~~
+</details>
+
+**2. Coroutine 기반 이벤트 흐름 제어**
+
+카드 삽입, 카메라 이동, 오브젝트 회전, 연출 재생을 Coroutine으로 순차 제어
+eventInProgress 플래그를 통해 중복 실행 및 상태 충돌 방지
+<details>
+<summary>Code</summary>
+    
+~~~csharp
+IEnumerator ActivateIDCardSequence(GameObject idCardObject)
+{
+    eventInProgress = true;
+
+    gun.SetActive(false);
+    yield return StartCoroutine(MoveCameraToSide(targetPosition, targetRotation));
+    ActivateIDCard();
+    yield return StartCoroutine(InsertIDCard(idCardObject));
+    PlaySound(idCardObject);
+    yield return new WaitForSeconds(3f);
+    DeactivateIDCard();
+    yield return StartCoroutine(ResetCameraPositionAndRotation());
+
+    player.GetComponent<PlayerController>().enabled = true;
+    eventInProgress = false;
+}
+~~~
+</details>
+
+**3. 분리된 오브젝트 기반 인터랙션 연출 구현**
+
+플레이어 본체 애니메이션이 아닌 팔/손가락 오브젝트를 별도로 제어
+카메라 기준으로 오브젝트를 고정하여 위치에 따른 연출 차이를 제거
+<details>
+<summary>Code</summary>
+    
+~~~csharp
+void MoveObjectToFront(GameObject obj)
+{
+    Vector3 targetPosition = Camera.main.transform.position + Camera.main.transform.forward * distanceToCamera;
+    obj.transform.position = targetPosition;
+
+    Quaternion localRotation = Quaternion.Euler(0, -180, -180);
+    Quaternion targetRotation = Quaternion.LookRotation(Camera.main.transform.forward, Vector3.up) * localRotation;
+
+    obj.transform.rotation = targetRotation;
+    StartCoroutine(SequentialArmRotations(obj));
+}
+~~~
+</details>
+
+## 🩶 Core Problem
+플레이어의 위치, 시점, 입력 상태에 따라
+동일한 상호작용이 다른 결과를 만들어내는 문제가 발생했습니다.
+
+이로 인해 퍼즐 진행 과정에서
+플레이 경험의 일관성이 깨지는 문제가 있었습니다.
+## 🩶 Solution
+인터랙션을 오브젝트 중심이 아닌
+환경(Camera / Input / Event Flow)을 제어하는 구조로 전환했습니다.
+
+Camera를 고정하여 시점 변수 제거
+Input을 제한하여 상태 충돌 방지
+Coroutine을 통해 이벤트 흐름을 순차적으로 제어
+
+이를 통해 플레이어 상태와 무관하게
+항상 동일한 인터랙션 결과가 나오도록 개선했습니다.
 ## 🌐 연락처 (Find Me)
-- GitHub: [Dazzang22](https://github.com/Dazzang22)  
-- LinkedIn: [Dahea Lee](https://www.linkedin.com/in/dahealee/)  
-- Email: [yourname@email.com](mailto:yourname@email.com)
+- GitHub: [Dazzang22](https://github.com/Dazzang22)   
+- Email: [lisa7041@gmail.com](mailto:lisa7041@gmail.com)
 
 ---
 
