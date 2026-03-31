@@ -14,7 +14,7 @@ C# · Unity · Coroutine · UI Sync · AR Foundation
 - Data → UI Sync 파이프라인 설계
 - 인터랙션 구조 설계 및 상태 제어
 - Camera / Input 기반 환경 제어 시스템 구현
-- Live 환경에서 문제 분석 및 패치 경험
+- Live 환경에서 <ins>문제 분석 및 패치 경험</ins>
 
 
 ## 🩶 Featured Projects 
@@ -37,13 +37,12 @@ Notion: [Dazzang22](https://github.com/Dazzang22)
 
 
 ## 🩶 What I Did
-
-**1. ScriptableObject 기반 데이터 모델 설계**
-- Noonsong / Friends / Item 등 게임 내 주요 엔트리 구조를 ScriptableObject로 설계  
+**1. `ScriptableObject` 기반 데이터 모델 설계**
+- Noonsong / Friends / Item 등 게임 내 주요 엔트리 구조를 `ScriptableObject`로 설계  
 - 캐릭터 상태(발견 여부, 호감도, 관계 상태), 아이템 속성, 건물별 스폰 기준을 데이터 단위로 정의  
 - 게임 로직, UI, DB 동기화가 동일한 데이터 모델을 기준으로 동작하도록 구조 설계
 <details>
-<summary>Code</summary> 
+<summary>${\color{Blue}Code}$</summary> 
     
 ~~~csharp
 [CreateAssetMenu(fileName = "NewNoonsongEntry", menuName = "Noonsong Entry")]
@@ -67,14 +66,15 @@ public class NoonsongEntry : ScriptableObject
 </details>
 
 **2. 데이터 흐름 기반 UI 동기화 구조 설계**
-- Spawn된 오브젝트와 Entry 데이터를 연결하여  
+- Spawn된 오브젝트와 `Entry` 데이터를 연결하여  
   Target → Entry → UI로 이어지는 데이터 파이프라인 구축  
 - 수집 시 상태 변화가 도감 UI에 즉시 반영되도록 동기화 구조 설계  
 
 **3. AR 기반 인터랙션 시스템 구현**
-- Camera 기준으로 현재 상호작용 가능한 타겟을 판별하고 currentTarget으로 관리  
+- Camera 기준으로 현재 상호작용 가능한 타겟을 판별하고 `currentTarget`으로 관리  
 - 단순 Raycast로는 화면 내 노출 여부를 정확히 판단하기 어려워,  
-  오브젝트의 바운더리 포인트를 기준으로 화면 내 존재 여부를 판정하는 로직 구현  
+  오브젝트의 바운더리 포인트를 기준으로 화면 내 존재 여부를 판정하는 로직 구현
+
 <details>
 <summary>Code</summary>
     
@@ -107,7 +107,7 @@ foreach (Vector3 point in checkPoints)
 → 화면 중심 Raycast의 한계를 보완하여, 실제 사용자 시야 기준으로 상호작용 대상을 판별하도록 개선  
 
 **4. 게임 시스템 구현 (재화 / 인벤토리 / 상점 / 관계 시스템)**
-- Singleton 기반 재화 시스템을 설계하여 상태 변경 시 UI가 자동으로 갱신되도록 구성  
+- `Singleton` 기반 재화 시스템을 설계하여 상태 변경 시 UI가 자동으로 갱신되도록 구성  
 - 아이템 구매 → DB 반영 → UI 갱신까지 이어지는 데이터 흐름 구현  
 - 선호도 기반 호감도 및 관계 상태(친구 / 베스트프렌드) 변화 시스템 설계  
 
@@ -169,7 +169,7 @@ List<NoonsongEntry> GetNoonsongEntriesByBuildingName(string buildingName)
 </details>
 
 현재 진입한 건물 기준으로 캐릭터 후보군을 필터링했으며, 
-필터링된 Entry List를 기존 스폰 로직에 연결하여 프리팹과 데이터가 함께 전달되도록 구성했습니다.
+필터링된 `Entry List`를 기존 스폰 로직에 연결하여 프리팹과 데이터가 함께 전달되도록 구성했습니다.
 
 <details>
   <summary>Code</summary>
@@ -198,8 +198,7 @@ if (filteredEntries.Count > 0)
 ---
 
 # 🦋 Name of Butterfly
-[Notion](https://teamnob.notion.site/bf98317c298147758a218e9dc75e6030)  
-[GitHub](https://github.com/lotia20/Name_Of_Butterfly_new) 
+[Notion](https://teamnob.notion.site/bf98317c298147758a218e9dc75e6030) [GitHub](https://github.com/lotia20/Name_Of_Butterfly_new) 
 > GPS 기반 AR 수집 게임으로,  
 > 위치에 따라 생성된 캐릭터를 수집하고 도감을 완성하는 인터랙티브 시스템입니다.
 
@@ -210,7 +209,7 @@ if (filteredEntries.Count > 0)
 - **Focus**: Interaction System, Input Control, Camera Control, Event Flow  
 
 ## 🩶 What I Did
-**1. Camera Lock 기반 인터랙션 구조 설계**
+**1. `Camera Lock` 기반 인터랙션 구조 설계**
 - 상호작용 시 카메라를 고정된 위치로 이동시키고, 플레이어 입력을 차단하여 상태 변수를 제거  
 - 이벤트 종료 후 원래 시점과 입력 상태를 복구하는 구조 구현  
 <details>
@@ -231,10 +230,10 @@ if (!IsPasswordActive)
 ~~~
 </details>
 
-**2. Coroutine 기반 이벤트 흐름 제어**
+**2. `Coroutine` 기반 이벤트 흐름 제어**
 
-카드 삽입, 카메라 이동, 오브젝트 회전, 연출 재생을 Coroutine으로 순차 제어
-eventInProgress 플래그를 통해 중복 실행 및 상태 충돌 방지
+카드 삽입, 카메라 이동, 오브젝트 회전, 연출 재생을 `Coroutine`으로 순차 제어
+`eventInProgress` 플래그를 통해 중복 실행 및 상태 충돌 방지
 <details>
 <summary>Code</summary>
     
