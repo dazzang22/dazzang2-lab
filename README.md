@@ -197,7 +197,11 @@ if (filteredEntries.Count > 0)
 
 ---
 
-# ❄️ Name of Butterfly 
+# 🦋 Name of Butterfly
+[Notion](https://teamnob.notion.site/bf98317c298147758a218e9dc75e6030)  
+[GitHub](https://github.com/lotia20/Name_Of_Butterfly_new) 
+> GPS 기반 AR 수집 게임으로,  
+> 위치에 따라 생성된 캐릭터를 수집하고 도감을 완성하는 인터랙티브 시스템입니다.
 
 ## 🩶 Overview
 - **Platform**: Unity (VR)  
