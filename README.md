@@ -24,7 +24,7 @@ C# · Unity · Coroutine · UI Sync · AR Foundation
 [Notion](https://friendsnoonsong.notion.site)  
 ![ScreenRecording_04-14-202518-39-19_1-ezgif com-resize](https://github.com/user-attachments/assets/cf67caca-2726-469d-8398-0f3abd7253f0)
 > GPS 기반 AR 수집 게임으로,  
-> 위치에 따라 생성된 캐릭터를 수집하고 도감을 완성하는 인터랙티브 시스템입니다.
+> 위치에 따라 생성된 캐릭터를 수집하고 도감을 완성하는 인터랙티브 게임입니다.
 
 
 
@@ -205,8 +205,8 @@ if (filteredEntries.Count > 0)
 
 
 [Notion](https://teamnob.notion.site/bf98317c298147758a218e9dc75e6030) [GitHub](https://github.com/lotia20/Name_Of_Butterfly_new) 
-> GPS 기반 AR 수집 게임으로,  
-> 위치에 따라 생성된 캐릭터를 수집하고 도감을 완성하는 인터랙티브 시스템입니다.
+> 3D 인터랙션 게임으로,  
+> 폐허가 된 공간을 탐색하고 청소하며 단서를 수집하고, 플레이어가 스스로 세계관을 해석하는 게임입니다.
 
 ## 🩶 Overview
 - **Platform**: Unity (VR)  
