@@ -209,7 +209,7 @@ if (filteredEntries.Count > 0)
 > 폐허가 된 공간을 탐색하고 청소하며 단서를 수집하고, 플레이어가 스스로 세계관을 해석하는 게임입니다.
 
 ## 🩶 Overview
-- **Platform**: Unity (VR)  
+- **Platform**: Unity (3D)  
 - **Language**: C#  
 - **Role**: Client Developer  
 - **Focus**: Interaction System, Input Control, Camera Control, Event Flow  
