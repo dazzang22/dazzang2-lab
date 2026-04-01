@@ -21,9 +21,11 @@ C# · Unity · Coroutine · UI Sync · AR Foundation
 ---
 
 # ❄️ 프렌즈! 눈송 (GPS 기반 AR 수집 게임)
-Notion: [Dazzang22](https://github.com/Dazzang22)  
+[Notion](https://friendsnoonsong.notion.site)  
+![ScreenRecording_04-14-202518-39-19_1-ezgif com-resize](https://github.com/user-attachments/assets/cf67caca-2726-469d-8398-0f3abd7253f0)
 > GPS 기반 AR 수집 게임으로,  
 > 위치에 따라 생성된 캐릭터를 수집하고 도감을 완성하는 인터랙티브 시스템입니다.
+
 
 
 ## 🩶 Overview
