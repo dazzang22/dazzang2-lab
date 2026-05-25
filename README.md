@@ -3,8 +3,13 @@
 문제를 구조로 해결하는 Unity Client Developer, 이다혜입니다.  
 사용자 경험의 일관성을 중요하게 생각하며, **데이터 흐름과 인터랙션 구조를 설계하는 개발**을 지향합니다.
 
-**Tech** C# · Unity · Coroutine · UI Sync · AR Foundation
-
+### 🛠 Tech Stack
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![Unity](https://img.shields.io/badge/Unity-000000?style=for-the-badge&logo=unity&logoColor=white)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 ---
 
 ## 🤍 Core Strength
