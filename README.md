@@ -1,52 +1,62 @@
-# # Hi, I'm Dahea Lee 🩵
+# Hi, I'm Dahea Lee 🩵
 
-문제를 구조로 해결하는 Unity Client Developer, 이다혜입니다.  
-사용자 경험의 일관성을 중요하게 생각하며, **데이터 흐름과 인터랙션 구조를 설계하는 개발**을 지향합니다.
+문제를 추적하고, 구조로 해결하는 Unity Client Developer 이다혜입니다.  
+플레이어에게 보이는 기능을 구현하는 것에서 나아가,  
+**데이터 흐름과 실행 구조를 설계하고 성능 문제의 원인을 끝까지 추적하는 개발**을 지향합니다.
 
 ### 🛠 Tech Stack
+
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
 ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 ![Unity](https://img.shields.io/badge/Unity-000000?style=for-the-badge&logo=unity&logoColor=white)
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+
 ---
 
 ## 🤍 Core Strength
 
-- **Data → UI Sync:** 데이터 모델과 UI를 일관되게 연결하는 파이프라인 설계
-- **Interaction System:** 상태 충돌 없는 환경 제어 및 이벤트 시퀀싱
-- **Optimization:** 프로파일링 기반 병목 지점 분석 및 $O(N) \to O(1)$ 성능 개선
-- **Live Patch:** 라이브 환경에서의 문제 추적 및 현장 대응 경험
+- **Client System:** 데이터 → 상호작용 → UI로 이어지는 클라이언트 기능 구현
+- **Profiling & Optimization:** Profiler 기반 병목 추적 및 실행 구조 개선
+- **Interaction:** 카메라·입력·상태를 제어하는 인터랙션 및 이벤트 시퀀스 구현
+- **Live Service:** 실제 모바일 환경에서 문제를 재현하고 수정·검증
 
 ---
 
 ## 🩶 Featured Projects
 
-### 1. ❄️ 프렌즈! 눈송 (GPS 기반 AR 수집 게임)
-> 위치 데이터와 캐릭터 도감을 연결하는 **데이터 파이프라인 구축 및 성능 안정화**
+### 1. ❄️ 프렌즈! 눈송
+> 11개 건물을 돌아다니며 AR 마스코트를 수집하는 모바일 AR 서비스
 
-- **Key Achievement:** - AR 오브젝트 탐색 구조 개선으로 **연산 복잡도 $O(1)$ 달성**
-    - `Update` 기반 로직을 `Coroutine` 구조로 리팩토링하여 CPU 안정성 확보
-    - 100건 이상의 피드백 대응을 통한 라이브 패치 및 운영 경험
-- **Links:** [❄️GitHub Repository(상세 보기)](https://github.com/dazzang22/Noonsong-Client-Optimization) | [📋 Notion](https://friendsnoonsong.notion.site)
+- **Collection Pipeline:** 건물별 데이터 → AR Spawn → 탐지 → 수집 → UI 반영으로 이어지는 클라이언트 기능 구현
+- **Runtime Optimization:** 탐지 과정의 반복 할당을 제거해 **92 B/frame → 0 B/frame**
+- **Execution Control:** 매 프레임 수행되던 탐지 로직을 Coroutine으로 변경해 **약 400 calls/s → 10 calls/s**
+- **Live Service:** 실제 iOS·Android 환경에서 장시간 플레이 이슈를 재현하고 수정 후 재검증
 
-### 2. 🦋 Name of Butterfly (3D 인터랙션 어드벤처)
-> 시점과 상태를 통제하는 **인터랙션 환경 제어 및 프레임 스파이크 해결**
+**Links:** [❄️ GitHub Repository](https://github.com/dazzang22/Noonsong-Client-Optimization) | [📋 Notion](https://friendsnoonsong.notion.site)
 
-- **Key Achievement:** - 상호작용 시 발생하는 **1,832ms의 프레임 스파이크를 0.4ms로 개선** (약 4,500배)
-    - Camera-Lock 및 Input Blocking을 통한 일관된 사용자 경험 설계
-    - Sprite Atlas 적용을 통해 UI 드로우콜 80% 절감
-- **Links:** [🦋GitHub Repository(상세 보기)](https://github.com/dazzang22/NoB-Client-Optimization)| [📋 Notion](https://teamnob.notion.site/bf98317c298147758a218e9dc75e6030)
+---
+
+### 2. 🦋 Name of Butterfly
+> 플레이어와 환경의 상호작용을 중심으로 한 3D 1인칭 어드벤처 게임
+
+- **Interaction:** 오브젝트 상호작용과 카메라·입력 제어를 포함한 이벤트 시퀀스 구현
+- **Optimization:** Profiler를 활용해 최초 상호작용 시 발생하는 Runtime Initialization 비용 분석 및 개선
+- **Rendering:** Frame Debugger를 활용한 UI 렌더링 구조 분석 및 Sprite Atlas 적용
+- **WebGL Porting:** AI를 활용해 WebGL 빌드·렌더링 문제의 조사 범위를 좁히고, 직접 검증하며 포팅 진행
+
+**Links:** [🦋 GitHub Repository](https://github.com/dazzang22/NoB-Client-Optimization) | [📋 Notion](https://teamnob.notion.site/bf98317c298147758a218e9dc75e6030)
 
 ---
 
 ## 🌐 Find Me
+
 - **GitHub:** [Dazzang22](https://github.com/Dazzang22)
 - **Email:** [lisa7041@gmail.com](mailto:lisa7041@gmail.com)
 
 ---
 
-**Thank you for visiting my portfolio!** 상세한 코드 구현 방식과 최적화 분석 과정은 위 프로젝트별 **GitHub 링크**에서 확인하실 수 있습니다. 
+상세한 구현 방식과 최적화 분석 과정은 각 프로젝트의 **GitHub Repository**에서 확인하실 수 있습니다.
 
 
