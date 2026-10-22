@@ -1,62 +1,29 @@
-# Hi, I'm Dahea Lee 🩵
+# 이다혜 | Unity Client Developer
 
-문제를 추적하고, 구조로 해결하는 Unity Client Developer 이다혜입니다.  
-플레이어에게 보이는 기능을 구현하는 것에서 나아가,  
-**데이터 흐름과 실행 구조를 설계하고 성능 문제의 원인을 끝까지 추적하는 개발**을 지향합니다.
+Unity에서 플레이어 상호작용을 구현합니다. 데이터가 화면까지 이어지는 흐름을 설계하고, 반복 실행 비용은 Profiler로 확인해 개선합니다.
 
-### 🛠 Tech Stack
+## 프로젝트
 
-![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
-![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
-![Unity](https://img.shields.io/badge/Unity-000000?style=for-the-badge&logo=unity&logoColor=white)
-![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+### [프렌즈! 눈송](https://github.com/dazzang22/Noonsong-Client-Optimization)
 
----
+건물 구역에서 AR 마스코트를 만나 수집하는 모바일 게임 · **2024–2025 팀 프로젝트 / 2026 개인 후속 개선**
 
-## 🤍 Core Strength
+- **원 프로젝트:** 건물별 Entry 후보 선택과 랜덤 Spawn, 생성 객체–Entry 연결, AR 수집과 도감 UI 갱신을 구현했습니다.
+- **후속 개선:** 건물별 조회 캐시, AR 탐지 배열 재사용과 호출 주기 조정, Controller별 생성 객체 소유권과 수명 관리를 다뤘습니다.
+- **측정:** Unity Editor Play Mode의 탐지 Marker에서 **92 → 0 B/call**, 호출 빈도는 3회 측정 중앙값 **95.47 → 8.21 calls/sec**였습니다. 발열이나 Spawn 중단의 원인·해결을 입증한 수치는 아닙니다.
 
-- **Client System:** 데이터 → 상호작용 → UI로 이어지는 클라이언트 기능 구현
-- **Profiling & Optimization:** Profiler 기반 병목 추적 및 실행 구조 개선
-- **Interaction:** 카메라·입력·상태를 제어하는 인터랙션 및 이벤트 시퀀스 구현
-- **Live Service:** 실제 모바일 환경에서 문제를 재현하고 수정·검증
+[구현과 코드](https://github.com/dazzang22/Noonsong-Client-Optimization) · [측정 방법](https://github.com/dazzang22/Noonsong-Client-Optimization/blob/main/docs/runtime-optimization.md) · [플레이 영상](https://youtu.be/8JvtPYTLDJI?si=8AwcJ5Sj5yy2kRYz)
 
----
+### [Name of Butterfly](https://github.com/dazzang22/NoB-Client-Optimization)
 
-## 🩶 Featured Projects
+오브젝트를 조사하고 단서를 연결해 진행하는 1인칭 3D 어드벤처 · **2023–2024 팀 프로젝트 / 2026 개인 후속 개선**
 
-### 1. ❄️ 프렌즈! 눈송
-> 11개 건물을 돌아다니며 AR 마스코트를 수집하는 모바일 AR 서비스
+- **원 프로젝트:** Drawing 조사 상태, 카메라·입력 전환, ID Card와 Password 상호작용 시퀀스를 구현했습니다.
+- **후속 개선:** 가까운 오브젝트보다 플레이어의 시선에 맞는 대상을 우선 선택하도록 바꾸고, 중복 후보 탐색을 약 **4 → 1회/frame**으로 줄였습니다.
+- **WebGL 작업:** AI 도구와 함께 빌드·Terrain 렌더링 문제를 조사하고 Unity와 브라우저에서 결과를 확인했습니다. Build Report의 완료 빌드 크기는 **519.6 → 279.9 MB**였습니다.
 
-- **Collection Pipeline:** 건물별 데이터 → AR Spawn → 탐지 → 수집 → UI 반영으로 이어지는 클라이언트 기능 구현
-- **Runtime Optimization:** 탐지 과정의 반복 할당을 제거해 **92 B/frame → 0 B/frame**
-- **Execution Control:** 매 프레임 수행되던 탐지 로직을 Coroutine으로 변경해 **약 400 calls/s → 10 calls/s**
-- **Live Service:** 실제 iOS·Android 환경에서 장시간 플레이 이슈를 재현하고 수정 후 재검증
+[구현과 코드](https://github.com/dazzang22/NoB-Client-Optimization) · [선택 정책과 측정](https://github.com/dazzang22/NoB-Client-Optimization/blob/main/docs/target-selection.md) · [WebGL 작업 기록](https://github.com/dazzang22/NoB-Client-Optimization/blob/main/docs/webgl-recovery.md)
 
-**Links:** [❄️ GitHub Repository](https://github.com/dazzang22/Noonsong-Client-Optimization) | [📋 Notion](https://friendsnoonsong.notion.site)
+## 연락
 
----
-
-### 2. 🦋 Name of Butterfly
-> 플레이어와 환경의 상호작용을 중심으로 한 3D 1인칭 어드벤처 게임
-
-- **Interaction:** 오브젝트 상호작용과 카메라·입력 제어를 포함한 이벤트 시퀀스 구현
-- **Optimization:** Profiler를 활용해 최초 상호작용 시 발생하는 Runtime Initialization 비용 분석 및 개선
-- **Rendering:** Frame Debugger를 활용한 UI 렌더링 구조 분석 및 Sprite Atlas 적용
-- **WebGL Porting:** AI를 활용해 WebGL 빌드·렌더링 문제의 조사 범위를 좁히고, 직접 검증하며 포팅 진행
-
-**Links:** [🦋 GitHub Repository](https://github.com/dazzang22/NoB-Client-Optimization) | [📋 Notion](https://teamnob.notion.site/bf98317c298147758a218e9dc75e6030)
-
----
-
-## 🌐 Find Me
-
-- **GitHub:** [Dazzang22](https://github.com/Dazzang22)
-- **Email:** [lisa7041@gmail.com](mailto:lisa7041@gmail.com)
-
----
-
-상세한 구현 방식과 최적화 분석 과정은 각 프로젝트의 **GitHub Repository**에서 확인하실 수 있습니다.
-
-
+[GitHub](https://github.com/dazzang22) · [lisa7041@gmail.com](mailto:lisa7041@gmail.com)
